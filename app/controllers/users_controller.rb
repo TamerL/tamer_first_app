@@ -5,5 +5,7 @@ class UsersController < ActionController::Base
   end
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts
+    @cars = @user.cars
   end
 end

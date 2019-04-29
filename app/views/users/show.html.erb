@@ -1,2 +1,14 @@
 <p><%= @user.name %></p>
 <p><%= @user.email %></p>
+
+<h3>All Posts</h3>
+<% @posts.each do |post| %>
+  <p><%= post.name %>
+  <p><%= post.title %>
+<% end %>
+
+<h3>All Cars</h3>
+<% @cars.each do |car| %>
+  <p><%= car.model %>
+  <p><%= car.colour %>
+<% end %>
