@@ -1,2 +1,7 @@
 <p><%= @post.name %></p>
 <p><%= @post.title %></p>
+<p><%= @post.year %></p>
+<%= button_to 'Delete', @post, method: :delete, data: {confirm: 'Are you sure?'} %>
+<%= link_to 'Edit', edit_post_url(@post) %>
+
+

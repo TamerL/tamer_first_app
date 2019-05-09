@@ -1,5 +1,10 @@
 <% @posts.each do |post| %>
  <p><%= post.name %></p>
  <p><%= post.title %></p>
+ <p><%= post.year %></p>
+
  <%= button_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
-<% end %>
+
+ <% end %>
+
+<%= link_to 'Add', new_post_url(@post) %>

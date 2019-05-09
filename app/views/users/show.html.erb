@@ -1,5 +1,7 @@
 <p><%= @user.name %></p>
 <p><%= @user.email %></p>
+<p><%= @user.age %></p>
+<%= button_to 'Delete', @user, method: :delete, data: {confirm: 'Are you sure?'} %>
 
 <h3>All Posts</h3>
 <% @posts.each do |post| %>

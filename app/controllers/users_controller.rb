@@ -2,6 +2,7 @@ class UsersController < ActionController::Base
   protect_from_forgery with: :exception
   def index
     @users = User.all
+    @user = User.new
   end
   def show
     @user = User.find(params[:id])
@@ -14,7 +15,10 @@ class UsersController < ActionController::Base
   end
 
   def create
-    @user = User.create(name: params[:user][:name], email: params[:user][:email])
+    @user = User.create(
+      name: params[:user][:name],
+      email: params[:user][:email],
+      age: params[:user][:age])
     redirect_to @user
   end
 

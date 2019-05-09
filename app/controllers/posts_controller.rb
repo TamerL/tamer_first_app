@@ -2,6 +2,7 @@ class PostsController < ActionController::Base
   protect_from_forgery with: :exception
   def index
     @posts = Post.all
+    @post = Post.new
   end
   def show
     @post = Post.find(params[:id])
@@ -11,8 +12,26 @@ class PostsController < ActionController::Base
     @post = Post.new
   end
 
+  def update
+    @post = Post.find(params[:id])
+    @post.update(
+      name: params[:post][:name],
+      title: params[:post][:title],
+      year: params[:post][:year])
+    redirect_to action: :show
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+
+  end
+
   def create
-    @post = Post.create(name: params[:post][:name], title: params[:post][:title], user_id: User.last.id)
+    @post = Post.create(
+      name: params[:post][:name],
+      title: params[:post][:title],
+      user_id: User.last.id,
+    year: params[:post][:year])
     redirect_to @post
   end
 

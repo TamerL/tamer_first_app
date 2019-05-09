@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190429120356) do
+ActiveRecord::Schema.define(version: 20190507111240) do
 
   create_table "cars", force: :cascade do |t|
     t.string "model"
@@ -23,12 +23,14 @@ ActiveRecord::Schema.define(version: 20190429120356) do
     t.string "name"
     t.string "title"
     t.integer "user_id"
+    t.integer "year", default: 2010, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.integer "age", default: 20, null: false
   end
 
 end
